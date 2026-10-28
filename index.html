@@ -1,0 +1,1272 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>甄德衡 | 产品经理</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+        }
+
+        :root {
+            --purple: #7c3aed;
+            --purple-light: #a855f7;
+            --purple-50: #f5f3ff;
+            --purple-100: #ede9fe;
+            --text-dark: #0a0a0a;
+            --text-gray: #52525b;
+            --text-muted: #a1a1aa;
+            --bg: #fafafa;
+            --card: #ffffff;
+            --border: rgba(0, 0, 0, 0.06);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text-dark);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* ===== Navigation ===== */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+        }
+
+        .nav-content {
+            max-width: 1152px;
+            margin: 0 auto;
+            padding: 0 24px;
+            height: 72px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            font-size: 20px;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-gray);
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--purple);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--purple);
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        /* ===== Hero ===== */
+        header {
+            background: linear-gradient(135deg, #f5f3ff 0%, #ffffff 50%, #faf5ff 100%);
+            padding: 160px 24px 100px;
+        }
+
+        .header-content {
+            max-width: 1152px;
+            margin: 0 auto;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 6px 16px;
+            background: rgba(124, 58, 237, 0.08);
+            color: var(--purple);
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 28px;
+        }
+
+        .name {
+            font-size: 64px;
+            font-weight: 900;
+            line-height: 1;
+            letter-spacing: -0.03em;
+            margin-bottom: 28px;
+        }
+
+        .position {
+            font-size: 26px;
+            font-weight: 300;
+            color: var(--text-gray);
+            margin-bottom: 16px;
+        }
+
+        .intro {
+            font-size: 17px;
+            color: var(--text-muted);
+            max-width: 640px;
+            margin-bottom: 48px;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .contact-item .icon-circle {
+            flex-shrink: 0;
+        }
+
+        .contact-item .label {
+            display: block;
+            font-size: 11px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 2px;
+        }
+
+        .contact-item .value {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        /* ===== Stats ===== */
+        .stats {
+            display: flex;
+            gap: 64px;
+            margin-top: 64px;
+            flex-wrap: wrap;
+        }
+
+        .stat-number {
+            font-size: 44px;
+            font-weight: 800;
+            line-height: 1;
+            background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-top: 10px;
+        }
+
+        /* ===== Shared components ===== */
+        .container {
+            max-width: 1152px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        section {
+            padding: 96px 24px;
+        }
+
+        .section-head {
+            margin-bottom: 48px;
+        }
+
+        .section-title {
+            position: relative;
+            font-size: 40px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            padding-left: 24px;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 36px;
+            background: linear-gradient(180deg, #7c3aed 0%, #a855f7 100%);
+            border-radius: 2px;
+        }
+
+        .section-sub {
+            font-size: 16px;
+            color: var(--text-muted);
+            margin-top: 12px;
+            padding-left: 24px;
+            max-width: 640px;
+        }
+
+        .card-premium {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card-premium:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(124, 58, 237, 0.08), 0 4px 8px rgba(0, 0, 0, 0.04);
+            border-color: rgba(124, 58, 237, 0.12);
+        }
+
+        .icon-circle {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-gray);
+            transition: all 0.3s ease;
+        }
+
+        .icon-circle i {
+            font-size: 18px;
+        }
+
+        .icon-circle:hover {
+            background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
+            color: #ffffff;
+            transform: scale(1.08);
+            box-shadow: 0 8px 16px rgba(124, 58, 237, 0.2);
+        }
+
+        .icon-square {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            flex-shrink: 0;
+        }
+
+        .icon-square.purple { background: linear-gradient(135deg, #f5f3ff, #ede9fe); color: var(--purple); }
+        .icon-square.blue { background: linear-gradient(135deg, #eff6ff, #dbeafe); color: #2563eb; }
+        .icon-square.indigo { background: linear-gradient(135deg, #eef2ff, #e0e7ff); color: #4f46e5; }
+        .icon-square.green { background: linear-gradient(135deg, #ecfdf5, #d1fae5); color: #059669; }
+
+        /* ===== Advantages ===== */
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .advantage-card {
+            padding: 32px;
+        }
+
+        .advantage-card .icon-square {
+            margin-bottom: 24px;
+        }
+
+        .advantage-title {
+            font-size: 19px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .advantage-desc {
+            font-size: 14px;
+            color: var(--text-gray);
+            line-height: 1.8;
+        }
+
+        /* ===== Experience ===== */
+        .experience-item {
+            padding: 40px;
+            margin-bottom: 24px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 0;
+            background: linear-gradient(180deg, #7c3aed 0%, #a855f7 100%);
+            transition: height 0.4s ease;
+        }
+
+        .experience-item:hover::before {
+            height: 100%;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 24px;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .experience-company {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+
+        .company-name {
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+        }
+
+        .company-desc {
+            font-size: 14px;
+            color: var(--text-gray);
+            margin-top: 6px;
+            line-height: 1.7;
+        }
+
+        .experience-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .experience-meta .tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--purple);
+            background: rgba(124, 58, 237, 0.08);
+            padding: 5px 14px;
+            border-radius: 20px;
+        }
+
+        .experience-meta .tag.muted {
+            color: var(--text-gray);
+            background: #f4f4f5;
+        }
+
+        .responsibilities-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .responsibilities-title::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--purple);
+        }
+
+        .responsibilities-list {
+            list-style: none;
+            padding-left: 6px;
+        }
+
+        .responsibilities-list li {
+            position: relative;
+            padding-left: 20px;
+            font-size: 14px;
+            color: var(--text-gray);
+            line-height: 1.8;
+            margin-bottom: 12px;
+        }
+
+        .responsibilities-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 11px;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: rgba(124, 58, 237, 0.3);
+        }
+
+        /* ===== Projects ===== */
+        .projects-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .project-item {
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 0;
+            background: linear-gradient(180deg, #7c3aed 0%, #a855f7 100%);
+            transition: height 0.4s ease;
+        }
+
+        .project-item:hover::before {
+            height: 100%;
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 28px;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .project-name {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+        }
+
+        .project-period {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-gray);
+            background: #f4f4f5;
+            padding: 6px 16px;
+            border-radius: 20px;
+            white-space: nowrap;
+        }
+
+        .project-section {
+            margin-bottom: 22px;
+        }
+
+        .project-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .project-section-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+
+        .project-section-title i {
+            color: var(--purple);
+            font-size: 15px;
+            width: 18px;
+        }
+
+        .project-section-content {
+            font-size: 14px;
+            color: var(--text-gray);
+            line-height: 1.8;
+            padding-left: 26px;
+        }
+
+        .project-section-content h4 {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin: 16px 0 8px;
+        }
+
+        .project-section-content h4:first-child {
+            margin-top: 0;
+        }
+
+        .project-section-content ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .project-section-content li {
+            position: relative;
+            padding-left: 18px;
+            margin-bottom: 8px;
+        }
+
+        .project-section-content li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 11px;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: rgba(124, 58, 237, 0.3);
+        }
+
+        /* ===== Education & Certificate ===== */
+        .education-item {
+            padding: 36px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .education-info h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .education-info p {
+            font-size: 14px;
+            color: var(--text-gray);
+            margin-bottom: 6px;
+        }
+
+        .education-period {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-gray);
+            background: #f4f4f5;
+            padding: 8px 20px;
+            border-radius: 20px;
+            white-space: nowrap;
+        }
+
+        .certificate-item {
+            padding: 32px 40px;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .certificate-item .icon-square {
+            background: linear-gradient(135deg, #f5f3ff, #ede9fe);
+            color: var(--purple);
+        }
+
+        .certificate-name {
+            font-size: 17px;
+            font-weight: 600;
+        }
+
+        /* ===== Footer ===== */
+        footer {
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            padding: 40px 24px;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        /* ===== Scroll top ===== */
+        .scroll-top {
+            position: fixed;
+            right: 28px;
+            bottom: 28px;
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
+            color: #ffffff;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            box-shadow: 0 8px 20px rgba(124, 58, 237, 0.35);
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px rgba(124, 58, 237, 0.45);
+        }
+
+        /* ===== Animations ===== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== Responsive ===== */
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 16px;
+            }
+
+            .nav-links a {
+                font-size: 13px;
+            }
+
+            header {
+                padding: 140px 20px 72px;
+            }
+
+            .name {
+                font-size: 44px;
+            }
+
+            .position {
+                font-size: 20px;
+            }
+
+            .stats {
+                gap: 40px;
+            }
+
+            .stat-number {
+                font-size: 36px;
+            }
+
+            section {
+                padding: 64px 20px;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            .experience-item,
+            .project-item {
+                padding: 28px;
+            }
+
+            .contact-info {
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-content">
+            <div class="nav-brand">甄德衡</div>
+            <div class="nav-links">
+                <a href="#advantages" class="nav-link">个人优势</a>
+                <a href="#experience" class="nav-link">工作经历</a>
+                <a href="#projects" class="nav-link">项目经验</a>
+                <a href="#education" class="nav-link">教育经历</a>
+                <a href="#certificate" class="nav-link">资格证书</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header>
+        <div class="header-content">
+            <span class="badge">AI · B端C端产品专家</span>
+            <h1 class="name">甄德衡</h1>
+            <p class="position">7年互联网产品经理 · AI产品专家</p>
+            <p class="intro">独立负责多个产品 0-1 的设计与落地，兼具 B 端与 C 端产品经验，专注 AI 大模型应用与业财一体化建设。</p>
+
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="icon-circle"><i class="fas fa-phone"></i></div>
+                    <div>
+                        <span class="label">电话</span>
+                        <div class="value">13346261548</div>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="icon-circle"><i class="fas fa-envelope"></i></div>
+                    <div>
+                        <span class="label">邮箱</span>
+                        <div class="value"><a href="mailto:Wy163zdh@163.com">Wy163zdh@163.com</a></div>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="icon-circle"><i class="fas fa-graduation-cap"></i></div>
+                    <div>
+                        <span class="label">学历</span>
+                        <div class="value">本科</div>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="icon-circle"><i class="fas fa-calendar"></i></div>
+                    <div>
+                        <span class="label">出生年月</span>
+                        <div class="value">1997.03</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stats">
+                <div>
+                    <div class="stat-number">7年+</div>
+                    <div class="stat-label">产品经理经验</div>
+                </div>
+                <div>
+                    <div class="stat-number">5个+</div>
+                    <div class="stat-label">中台系统建设</div>
+                </div>
+                <div>
+                    <div class="stat-number">90%+</div>
+                    <div class="stat-label">运营效率提升</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Advantages -->
+        <section id="advantages">
+            <div class="container">
+                <div class="section-head reveal">
+                    <h2 class="section-title">个人优势</h2>
+                    <p class="section-sub">兼具产品规划、数据分析与 AI 落地的复合能力</p>
+                </div>
+                <div class="advantages-grid">
+                    <div class="advantage-card card-premium reveal">
+                        <div class="icon-square purple"><i class="fas fa-briefcase"></i></div>
+                        <h3 class="advantage-title">职业经历</h3>
+                        <p class="advantage-desc">7年互联网产品经理，独立负责多个产品0-1的设计与落地；兼具B端与C端产品经验，包括小程序、中台和后台管理系统；涉及业财一体化、企业内部服务、金融供应链、SCRM、SaaS等相关产品实施。</p>
+                    </div>
+
+                    <div class="advantage-card card-premium reveal">
+                        <div class="icon-square blue"><i class="fas fa-chart-line"></i></div>
+                        <h3 class="advantage-title">数据能力</h3>
+                        <p class="advantage-desc">具备扎实数据分析能力，可独立设计AI产品业务与技术指标；熟练进行数据拆解、漏斗分析、问题归因与版本效果对比；掌握知识库数据清洗、数据治理、评测集搭建能力；能通过数据驱动产品迭代、Badcase复盘及AI项目ROI评估。</p>
+                    </div>
+
+                    <div class="advantage-card card-premium reveal">
+                        <div class="icon-square indigo"><i class="fas fa-robot"></i></div>
+                        <h3 class="advantage-title">AI能力</h3>
+                        <p class="advantage-desc">掌握传统机器学习、深度学习、生成式AI算法基础；熟悉大模型在知识库问答、多智能体、多模态内容生成等场景中的应用；具备Prompt优化、效果评估、功能接口暴露和维护、业务流程设计及落地推进经验；能够围绕实际业务需求，推动Skills、Mcp、Engineering等技术在产品中的接入、优化与应用闭环建设。</p>
+                    </div>
+
+                    <div class="advantage-card card-premium reveal">
+                        <div class="icon-square green"><i class="fas fa-tools"></i></div>
+                        <h3 class="advantage-title">专业技能</h3>
+                        <p class="advantage-desc">精通Axure、Figma、墨刀等原型工具，能快速输出高保真产品原型；熟练掌握Coze/dify等低代码平台使用，通过Claude Code vibecoding快速实现demo制作与方案验证；熟练运用Visio、Xmind等软件，可规范输出PRD、流程图等产品交付文档。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience -->
+        <section id="experience">
+            <div class="container">
+                <div class="section-head reveal">
+                    <h2 class="section-title">工作经历</h2>
+                    <p class="section-sub">跨行业的产品落地实践，覆盖跨境供应链、金融科技与企业服务</p>
+                </div>
+
+                <div class="experience-item card-premium reveal">
+                    <div class="experience-header">
+                        <div class="experience-company">
+                            <div class="icon-square purple"><i class="fas fa-building"></i></div>
+                            <div>
+                                <h3 class="company-name">上海泓明数智科技有限公司</h3>
+                                <p class="company-desc">公司致力于为全球企业客户提供一站式跨境供应链解决方案，是领先的跨境服务商。</p>
+                            </div>
+                        </div>
+                        <div class="experience-meta">
+                            <span class="tag"><i class="fas fa-briefcase"></i> 产品经理</span>
+                            <span class="tag muted"><i class="fas fa-calendar-alt"></i> 2024.06 — 至今</span>
+                        </div>
+                    </div>
+                    <div class="experience-responsibilities">
+                        <div class="responsibilities-title">工作职责</div>
+                        <ul class="responsibilities-list">
+                            <li>主导多Agent项目：牵头落地AI数据分析平台Chatbi、Dify合同智能审查、海关政策智能问答等多Agent企业级AI项目，为企业经营实现降本增效与风险管控双重业务价值。</li>
+                            <li>主导业财一体化项目：整合SCRM/OMS/PMS/CMS/WMS/TMS，融合业务流、单据流、财务流等，打造业财一体化生态服务，提高订单履约率80%。</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="experience-item card-premium reveal">
+                    <div class="experience-header">
+                        <div class="experience-company">
+                            <div class="icon-square blue"><i class="fas fa-building"></i></div>
+                            <div>
+                                <h3 class="company-name">上海庚星能源有限公司</h3>
+                                <p class="company-desc">公司致力于数字化双碳服务，协同银行、新能源车厂、出行平台等，创建全国绿色出行网络。</p>
+                            </div>
+                        </div>
+                        <div class="experience-meta">
+                            <span class="tag"><i class="fas fa-briefcase"></i> 产品经理</span>
+                            <span class="tag muted"><i class="fas fa-calendar-alt"></i> 2023.04 — 2024.05</span>
+                        </div>
+                    </div>
+                    <div class="experience-responsibilities">
+                        <div class="responsibilities-title">工作职责</div>
+                        <ul class="responsibilities-list">
+                            <li>主导金融供应链项目：制定供应链体系、信贷体系、优惠券营销体系等，为企业数字化转型解决企业信贷产品及新能源汽车供应链问题。</li>
+                            <li>主导金融商城项目：制定线上金融商品商城、订单申请、电子签约等，为企业数字化转型解决企业信贷业务和新能源汽车销售业务线上一体化运营问题。</li>
+                            <li>主导SCRM项目：制定市场获客、在线销售、数字化营销等，为企业销售业务解决拓客难、转化低、管理混乱等问题，提升客户拉新转化率。</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="experience-item card-premium reveal">
+                    <div class="experience-header">
+                        <div class="experience-company">
+                            <div class="icon-square indigo"><i class="fas fa-building"></i></div>
+                            <div>
+                                <h3 class="company-name">上海微创软件股份有限公司</h3>
+                                <p class="company-desc">公司致力于为全国企业提供端到端、一站式"互联网+"信息化、数字化转型服务的高新技术企业。</p>
+                            </div>
+                        </div>
+                        <div class="experience-meta">
+                            <span class="tag"><i class="fas fa-briefcase"></i> 产品经理</span>
+                            <span class="tag muted"><i class="fas fa-calendar-alt"></i> 2019.03 — 2023.03</span>
+                        </div>
+                    </div>
+                    <div class="experience-responsibilities">
+                        <div class="responsibilities-title">工作职责</div>
+                        <ul class="responsibilities-list">
+                            <li>主导智能WMS项目：制定库位管理、入库管理、生产管理、出库管理、库存管理以及手持端PDA等，为企业数字化转型解决库存混乱、业务协同效率低下等问题，库存准确率提升至99%以上，订单处理时间缩短50%。</li>
+                            <li>主导智能TMS项目：制定承运信息管理、运单管理、智能调度、在途监控、账单管理以及司机端小程序等，为企业数字化转型解决运输管理混乱、效率低下等问题，提高物流运输效率，降低运营成本，实现运输全流程可视化。</li>
+                            <li>负责合同中台项目：制定合同管理、标签管理、在线签署、双录视频存证、验证管理、签署形式管理，为企业中后台数字化转型解决线下合同工作流程繁琐、签署效率低等问题，提高客户体验、合同执行及履约效率。</li>
+                            <li>负责消息中台项目：制定短信、微信、站内信、APP Push等模板管理、限流管理、优先级管理、渠道管理、短信营销管理，为企业中后台数字化转型解决运营成本高、消息触达混乱等问题，提高短信营销效率、客户转化率。</li>
+                            <li>负责权限中台项目：制定员工管理、组织管理、RBAC模型管理、自动授权管理，为企业中后台数字化转型解决资源浪费、授权效率低、业务工作量大等问题。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section id="projects">
+            <div class="container">
+                <div class="section-head reveal">
+                    <h2 class="section-title">项目经验</h2>
+                    <p class="section-sub">从 AI 应用到中台建设，覆盖全链路的产品落地</p>
+                </div>
+
+                <div class="projects-grid">
+                    <div class="project-item card-premium reveal">
+                        <div class="project-header">
+                            <h3 class="project-name">AI数据分析平台ChatBI</h3>
+                            <span class="project-period">2025.12 - 2026.06</span>
+                        </div>
+
+                        <div class="project-section">
+                            <div class="project-section-title"><i class="fas fa-info-circle"></i> 项目背景</div>
+                            <div class="project-section-content">
+                                企业管理者和PM看数据做决策，长期依赖"等数据分析师排期→出报告"的慢链路，而市面BI工具虽然能出图出表，但止步于"数据可视化"层面，无法形成"问数"到"决策"的完整闭环。
+                            </div>
+                        </div>
+
+                        <div class="project-section">
+                            <div class="project-section-title"><i class="fas fa-lightbulb"></i> 项目介绍</div>
+                            <div class="project-section-content">
+                                基于Vibe coding开发模式，自主开发并实现面向公司的AI数据分析平台，通过AI赋能实现核心业务链路闭环："自然语言问数→智能图表→AI洞察→策略建议→报告导出"。
+                            </div>
+                        </div>
+
+                        <div class="project-section">
+                            <div class="project-section-title"><i class="fas fa-cogs"></i> 项目内容</div>
+                            <div class="project-section-content">
+                                <h4>场景一：经营指标AI深度分析（ChatBI 1.0）</h4>
+                                <ul>
+                                    <li><strong>业务指标体系梳理：</strong>深入供应链链路业务，梳理营收收入、成本费用、毛利盈利等核心指标，构建标准化、层级化的业务指标字典，为大模型提供准确的业务上下文与计算口径。</li>
+                                    <li><strong>数据处理与结构化注入：</strong>制定底层数据清洗与聚合规则，将数仓中的异构业务数据转化为大模型易于理解的结构化格式（JSON/Markdown格式），有效降低模型幻觉并控制上下文Token消耗。</li>
+                                    <li><strong>Prompt工程设计与调优：</strong>采用结构化Prompt框架，为大模型注入"资深供应链数据分析师"人设；结合Few-shot，引导大模型基于输入指标，稳定输出包含"数据概览、异常归因分析、业务优化建议"的高质量诊断报告。</li>
+                                </ul>
+                                <h4>场景二：智能问数Agent（ChatBI 2.0）</h4>
+                                <ul>
+                                    <li><strong>业务场景与Agent规划：</strong>针对管理层与运营端对数据"随问随取"的核心诉求，规划并搭建基于大模型的智能分析Agent，实现从"看固定报表"到"自然语言对话取数"的跨越。</li>
+                                    <li><strong>分析模型库搭建：</strong>结合不同业务场景的分析需求，预设多类分析模型，为各模型绑定具体的数据维度信息（如时间、区域、业务板块等），为大模型后续SQL取数提供明确参考依据。</li>
+                                    <li><strong>NL2SQL核心链路实现：</strong>设计Agent意图识别与路由逻辑。依托NL2SQL模块，使大模型根据用户Query自动检索分析模型库，精准生成高可用SQL语句，直连底层数据库完成秒级数据提取。</li>
+                                    <li><strong>可视化图表生成：</strong>基于SQL查询返回的结构化数据，通过大模型FunctionCall调用图表插件，自动生成对应的ECharts配置代码，将枯燥的数据转化为折线图、柱状图等可视化图表输出，提升数据可读性。</li>
+                                    <li><strong>闭环洞察报告生成：</strong>整合"原始数据+可视化图表+大模型推理"，自动生成图文并茂的深度分析报告，直接支撑管理层业务决策。</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="project-section">
+                            <div class="project-section-title"><i class="fas fa-code"></i> 开发流程</div>
+                            <div class="project-section-content">
+                                全程自主推进，使用Claude Code工具，结合Skill，独立完成从竞品分析、用户假设、PRD、AI架构到测试Demo的全流程，实现产品从0到1落地。
+                            </div>
+                        </div>
+
+                        <div class="project-section">
+                            <div class="project-section-title"><i class="fas fa-chart-bar"></i> 项目价值</div>
+                            <div class="project-section-content">
+                                管理者决策等待从2-3天缩至30秒，PM复盘从跨工具拼凑变一站式自助，数据分析师重复劳动占比从60%降至20%，通过语义层将AI幻觉率从30%-60%提至90%+，解决了B端AI在业务场景中的信任难题。
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-item card-premium reveal">
+                        <div class="project-header">
+                            <h3 class="project-name">Dify合同智能审查</h3>
+                            <span class="project-period">2025.09 - 2025.11</span>
+                        </div>
+
+                        <div class="project-section">
+                            <div class="project-section-title"><i class="fas fa-info-circle"></i> 项目背景</div>
+                            <div class="project-section-content">
+                                企业传统合同审查存在流程冗长、审核量大、人工疏漏多、风险识别不全等问题，人工审核效率低、成本高、标准化不足，无法适配批量、高精度的合同风控需求，因此基于Dify搭建智能化、可迭代的合同智能审查体系。
+                            </div>
+                        </div>
+
+                        <div class="project-section">
+                            <div class="project-section-title"><i class="fas fa-bullseye"></i> 项目目标</div>
+                            <div class="project-section-content">
+                                依托Dify构建智能化合同审查平台，搭建标准化审查架构与规则体系，实现合同审核、校对全流程自动化；通过多智能体并行机制提升审查效率。
+                            </div>
+                        </div>
+
+                        <div class="project-section">
+                            <div class="project-section-title"><i class="fas fa-cogs"></i> 项目内容</div>
+                            <div class="project-section-content">
+                                <ul>
+                                    <li><strong>架构整体设计：</strong>针对传统合同审查痛点，拆解审核、校对两大核心能力，落地「通用模型+智能体+知识库+审查规则库」整体架构，明确各模块功能边界与协同逻辑，搭建智能化审查底层能力。</li>
+                                    <li><strong>审查规则库建设：</strong>按采购、服务等合同品类搭建差异化场景化审查规则，支撑大模型精准合规审核；配置自动修改建议生成能力，实现审查报告自动归档存储，保障审核结果可追溯。</li>
+                                    <li><strong>多Agent并行审查落地：</strong>基于细分审查规则配置多个子智能体，分工完成专项审查任务，通过并行处理突破传统串行审核效率瓶颈，自动整合、校验各模块结果，输出完整标准化审查报告。</li>
+                                    <li><strong>系统迭代与能力优化：</strong>设计全方位迭代方案，规划接入天眼查API补齐主体资质审查能力；搭建日志监测与badcase追踪机制，支撑规则持续优化；新增异步缓存、预处理排队机制，解决高并发响应压力。</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="project-section">
+                            <div class="project-section-title"><i class="fas fa-chart-bar"></i> 项目价值</div>
+                            <div class="project-section-content">
+                                大幅缩短审查周期、降低人工工作量，有效节约企业人力与合同管理成本，降低企业业务合规风险。
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-item card-premium reveal">
+                        <div class="project-header">
+                            <h3 class="project-name">海关政策智能问答</h3>
+                            <span class="project-period">2024.12 - 2025.05</span>
+                        </div>
+
+                        <div class="project-section">
+                            <div class="project-section-title"><i class="fas fa-info-circle"></i> 项目背景</div>
+                            <div class="project-section-content">
+                                企业沉淀海量海关税则、品目注释、归类裁定、通关政策等专业资料，传统人工翻阅检索效率低下，商品归类依赖资深关务人员，存在归类出错、海关质疑、人工成本高、新人上手慢等合规与效率痛点。
+                            </div>
+                        </div>
+
+                        <div class="project-section">
+                            <div class="project-section-title"><i class="fas fa-bullseye"></i> 项目目标</div>
+                            <div class="project-section-content">
+                                规划落地海关政策智能问答，实现商品HS建议归类、政策快速检索解读，降低关务人工工作量，提升归类合规准确率。
+                            </div>
+                        </div>
+
+                        <div class="project-section">
+                            <div class="project-section-title"><i class="fas fa-cogs"></i> 项目内容</div>
+                            <div class="project-section-content">
+                                <ul>
+                                    <li><strong>意图识别架构：</strong>搭建分层任务路由中枢，将业务分流为政策问答、商品属性抽取、HS层级归类、合规风险校验、文书生成五大工作流，精准区分用户查询意图。</li>
+                                    <li><strong>海关数据收集和预处理：</strong>完成全量进出口税则、归类总规则、海关裁定、企业历史归类工单、进出口管制政策标准化归档；通过LLM自动生成政策QA问答样本，扩充领域知识库检索覆盖度。</li>
+                                    <li><strong>海关领域定制RAG体系：</strong>搭建海关专属向量知识库，自定义税则、裁定、MSDS、报关资料切片规则，落地法条溯源、业务数据权限隔离机制，所有归类、政策答复均可关联原始官方文件，规避大模型幻觉风险。</li>
+                                    <li><strong>分场景专业Prompt工程：</strong>针对政策咨询、材质属性提取、逐级HS编码推理、监管风险识别、归类意见书生成等场景定制专属结构化Prompt，强制按归类总规则层级推导编码，输出标准化结构化结果。</li>
+                                    <li><strong>BadCase闭环迭代机制：</strong>以归类错误、政策答非所问案例驱动迭代，全链路优化查询改写、法条检索、重排、推理生成环节；搭建海关归类黄金评测数据集，持续提升自动归类匹配精度。</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="project-section">
+                            <div class="project-section-title"><i class="fas fa-chart-bar"></i> 项目价值</div>
+                            <div class="project-section-content">
+                                完成MVP上线试点使用，支持进出口商品智能归类与海关政策即时问答，Top3 HS编码匹配准确率90%+，政策问答人工评估正确率86%，大幅减少关务翻阅资料、手工归类工时，降低申报不合规风险。
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-item card-premium reveal">
+                        <div class="project-header">
+                            <h3 class="project-name">业财一体化项目</h3>
+                            <span class="project-period">2024.06 - 2025.02</span>
+                        </div>
+
+                        <div class="project-section">
+                            <div class="project-section-title"><i class="fas fa-info-circle"></i> 项目背景</div>
+                            <div class="project-section-content">
+                                跨境供应链各业务系统与财务系统相互割裂，形成数据孤岛，报价、计费、结算全流程依赖线下人工处理，财务报表编制周期冗长，经营数据反馈严重滞后，管理层无法依靠实时业务数据开展精细化经营分析与高效管理决策。
+                            </div>
+                        </div>
+
+                        <div class="project-section">
+                            <div class="project-section-title"><i class="fas fa-bullseye"></i> 项目目标</div>
+                            <div class="project-section-content">
+                                搭建由统一规则引擎驱动的业财一体化数字化体系，打通OMS、CMS、WMS、TMS等业务系统与财务链路，实现报价、计费、对账、开票全流程线上化、自动化闭环管理，压缩财务核算周期、大幅降低人工运营成本。
+                            </div>
+                        </div>
+
+                        <div class="project-section">
+                            <div class="project-section-title"><i class="fas fa-cogs"></i> 项目内容</div>
+                            <div class="project-section-content">
+                                <ul>
+                                    <li><strong>搭建标准化计费规则引擎：</strong>搭建统一费用科目体系，完成计费单据、计费因子、计费脚本语法标准化定义，支持可视化规则配置、自然语言一键转换计费脚本，实现前端业务单据与后端财务费用数据标准统一，彻底破除业财数据壁垒。</li>
+                                    <li><strong>落地企业标准化线上报价体系：</strong>基于规则引擎搭建全域统一报价能力，支持灵活配置定价策略与多级审批流程，通过H5实现电子报价单一键线上推送，完成全公司报价集中管控，统一对外商务口径与品牌形象。</li>
+                                    <li><strong>构建自动化智能计费体系：</strong>打通OMS、CMS、WMS、TMS多业务系统数据源，依托标准化报价规则自动核算业务收入、各项成本费用，覆盖异常订单重算、费用差额补收补录等全场景，整体计费运营效率提升90%。</li>
+                                    <li><strong>搭建自动化账单体系：</strong>集成Smartbi平台，汇聚业务台账、各类费用明细多维度数据，实现客户月度账单批量自动生成；支持自定义账单报表模板，账单编制至客户确认交付的整体周期缩短90%。</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="project-section">
+                            <div class="project-section-title"><i class="fas fa-chart-bar"></i> 项目价值</div>
+                            <div class="project-section-content">
+                                通过规则引擎搭建业财一体化数字化平台，打破业务财务数据孤岛，实现报价、计费、账单、开票全流程线上自动化管控，报价效率提升80%、账单处理周期缩短90%，依托实时标准化经营数据提升财务核算效率。
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-item card-premium reveal">
+                        <div class="project-header">
+                            <h3 class="project-name">金融供应链系统</h3>
+                            <span class="project-period">2023.04 — 2024.05</span>
+                        </div>
+
+                        <div class="project-section">
+                            <div class="project-section-title"><i class="fas fa-info-circle"></i> 项目背景</div>
+                            <div class="project-section-content">
+                                汽车供应链与信贷融资业务采用线下分散化运营模式，业务体系割裂、数据信息不统一、审批与流转流程繁琐复杂。导致客户服务体验不佳、业务转化链路低效，长期制约信贷业务与汽车销售业务的规模化增长。
+                            </div>
+                        </div>
+
+                        <div class="project-section">
+                            <div class="project-section-title"><i class="fas fa-bullseye"></i> 项目目标</div>
+                            <div class="project-section-content">
+                                整合汽车供应链、金融信贷两大核心业务，搭建一体化线上数字化运营体系。标准化供应链全流程管控与信贷全生命周期流程，打通线上交易、审批、签约全链路，搭配精细化营销策略，实现客户转化与营收利润双向提升。
+                            </div>
+                        </div>
+
+                        <div class="project-section">
+                            <div class="project-section-title"><i class="fas fa-cogs"></i> 项目内容</div>
+                            <div class="project-section-content">
+                                <ul>
+                                    <li><strong>搭建全链路汽车供应链管理体系：</strong>统筹搭建覆盖供应商、商品、采购、销售、库存、物流、财务的一体化供应链管理体系，实现企业供应链全业务模块统一管控、数据互通与流程标准化。</li>
+                                    <li><strong>设计B端信贷产品流程：</strong>基于业务场景拆分设计B端信贷产品功能模块，全面梳理并统一贷前审核、贷中跟进、贷后管控的全生命周期运营流程；规范化信贷审批标准、优化业务流转机制、完善风险管控体系。</li>
+                                    <li><strong>打造线上一体化电商运营平台：</strong>整合线下汽车销售、融资信贷两大核心业务，搭建线上电商商城系统；实现商品展示、订单申请、在线签约等全流程线上化、自动化流转，精简客户操作流程，有效提升客户拉新、留存与转化效率。</li>
+                                    <li><strong>落地场景化营销增值策略：</strong>设计购车赠充电优惠券的精准营销活动体系，联动外部充电平台商家达成深度战略合作；依托场景化权益营销赋能主营业务，丰富客户购车增值服务，进一步激活客户成交意愿，助力整体业务转化率提升。</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="project-section">
+                            <div class="project-section-title"><i class="fas fa-chart-bar"></i> 项目价值</div>
+                            <div class="project-section-content">
+                                实现业务流程标准化、风控体系规范化、运营链路自动化，彻底解决业务信息割裂、流程混乱等痛点，企业盈利效率提升80%+，年度佣金收入2000W+，有效缩短成交链路、强化客户拉新留存转化，赋能业务长效增长。
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-item card-premium reveal">
+                        <div class="project-header">
+                            <h3 class="project-name">SCRM项目</h3>
+                            <span class="project-period">2023.04 — 2024.05</span>
+                        </div>
+
+                        <div class="project-section">
+                            <div class="project-section-title"><i class="fas fa-info-circle"></i> 项目背景</div>
+                            <div class="project-section-content">
+                                新能源汽车销售业务缺乏数字化管理体系，业务流程混乱、客户跟进不及时等核心问题。销售全流程信息无法形成闭环，造成大量客户流失、线索转化率偏低，严重制约企业数据化运营能力与整体销售业绩提升。
+                            </div>
+                        </div>
+
+                        <div class="project-section">
+                            <div class="project-section-title"><i class="fas fa-bullseye"></i> 项目目标</div>
+                            <div class="project-section-content">
+                                搭建SCRM系统+官方网站+供应链管理一体化数字化销售矩阵，打通PC端、小程序、H5等全渠道流量入口。实现销售线索实时更新、智能自动分配、全流程闭环管理，全面赋能销售业务高效、精细化运转。
+                            </div>
+                        </div>
+
+                        <div class="project-section">
+                            <div class="project-section-title"><i class="fas fa-cogs"></i> 项目内容</div>
+                            <div class="project-section-content">
+                                <ul>
+                                    <li><strong>搭建SaaS化SCRM系统：</strong>统筹规划系统核心能力，搭建客户管理、销售跟进、客户标签三大核心模块。联动金融供应链系统，支持为客户精准匹配意向车型、信贷金融产品；标准化销售工作流程，大幅提升销售管理效率。</li>
+                                    <li><strong>构建销售商机协同机制：</strong>搭建跨部门业务协同体系，规范化销售商机全生命周期管理。依托商机节点自动化触发订单生成，打通销售、运营、供应链等业务链路，提升业务协同效率与客户成交转化率。</li>
+                                    <li><strong>落地客户标签精细化运营：</strong>搭建完整的营销策略体系、自动化营销体系与客户画像体系。通过多维客户标签完成用户分层，实现从传统粗放式泛触达，转向精准化、个性化的客户触达与运营模式，提升营销精准度与用户粘性。</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="project-section">
+                            <div class="project-section-title"><i class="fas fa-chart-bar"></i> 项目价值</div>
+                            <div class="project-section-content">
+                                实现线索数字化高效录入，线索录入效率提升300%以上，有效降低整体获客成本；销售跟进效率提升80%，大幅减少跨部门协同与人工运营成本。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education -->
+        <section id="education">
+            <div class="container">
+                <div class="section-head reveal">
+                    <h2 class="section-title">教育经历</h2>
+                </div>
+                <div class="education-item card-premium reveal">
+                    <div class="education-info">
+                        <h3>郑州商学院</h3>
+                        <p><strong>专业：</strong>视觉传达设计</p>
+                        <p><strong>学历：</strong>本科</p>
+                        <p><strong>主辅修科目：</strong>网页设计、营销学、设计心理学、Adobe PS + AI、C4D三维建模、数据可视化</p>
+                    </div>
+                    <div class="education-period">2016.09 — 2020.07</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certificate -->
+        <section id="certificate">
+            <div class="container">
+                <div class="section-head reveal">
+                    <h2 class="section-title">资格证书</h2>
+                </div>
+                <div class="certificate-item card-premium reveal">
+                    <div class="icon-square purple"><i class="fas fa-certificate"></i></div>
+                    <span class="certificate-name">人工智能训练师三级证书</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 甄德衡 | 求职专用个人介绍作品集</p>
+    </footer>
+
+    <button class="scroll-top" onclick="scrollToTop()">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Intersection Observer for reveal animations
+        const revealEls = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+        revealEls.forEach(el => observer.observe(el));
+
+        // Navigation active state
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                if (scrollY >= section.offsetTop - 120) {
+                    current = section.getAttribute('id');
+                }
+            });
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Scroll to top button
+        const scrollButton = document.querySelector('.scroll-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                scrollButton.classList.add('visible');
+            } else {
+                scrollButton.classList.remove('visible');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
