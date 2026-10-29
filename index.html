@@ -38,6 +38,10 @@
             scroll-behavior: smooth;
         }
 
+        [id] {
+            scroll-margin-top: 88px;
+        }
+
         body {
             background: var(--bg);
             color: var(--text-dark);
@@ -67,11 +71,12 @@
         .nav-content {
             max-width: 1152px;
             margin: 0 auto;
-            padding: 0 24px;
-            height: 72px;
+            padding: 14px 24px;
+            min-height: 72px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 16px;
         }
 
         .nav-brand {
@@ -83,6 +88,7 @@
         .nav-links {
             display: flex;
             gap: 28px;
+            flex-wrap: wrap;
         }
 
         .nav-links a {
@@ -571,6 +577,86 @@
             background: rgba(124, 58, 237, 0.3);
         }
 
+        /* ===== Selected Works ===== */
+        .works-list {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .work-card {
+            display: block;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .work-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 0;
+            background: linear-gradient(180deg, #7c3aed 0%, #a855f7 100%);
+            transition: height 0.4s ease;
+        }
+
+        .work-card:hover::before {
+            height: 100%;
+        }
+
+        .work-card-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .work-title {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            transition: color 0.3s ease;
+        }
+
+        .work-card:hover .work-title {
+            color: var(--purple);
+        }
+
+        .work-tag {
+            display: inline-block;
+            font-size: 12px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 4px;
+        }
+
+        .work-desc {
+            font-size: 15px;
+            color: var(--text-gray);
+            line-height: 1.8;
+            margin-bottom: 24px;
+        }
+
+        .work-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--purple);
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .work-link i {
+            transition: transform 0.3s ease;
+        }
+
+        .work-card:hover .work-link i {
+            transform: translateX(4px);
+        }
+
         /* ===== Education & Certificate ===== */
         .education-item {
             padding: 36px 40px;
@@ -733,6 +819,7 @@
             <div class="nav-brand">甄德衡</div>
             <div class="nav-links">
                 <a href="#advantages" class="nav-link">个人优势</a>
+                <a href="#works" class="nav-link">精选作品</a>
                 <a href="#experience" class="nav-link">工作经历</a>
                 <a href="#projects" class="nav-link">项目经验</a>
                 <a href="#education" class="nav-link">教育经历</a>
@@ -744,7 +831,7 @@
     <!-- Hero -->
     <header>
         <div class="header-content">
-            <span class="badge">AI · B端C端产品专家</span>
+            <span class="badge">AI · B端产品经理</span>
             <h1 class="name">甄德衡</h1>
             <p class="position">7年互联网产品经理 · AI产品专家</p>
             <p class="intro">独立负责多个产品 0-1 的设计与落地，兼具 B 端与 C 端产品经验，专注 AI 大模型应用与业财一体化建设。</p>
@@ -829,6 +916,32 @@
                         <h3 class="advantage-title">专业技能</h3>
                         <p class="advantage-desc">精通Axure、Figma、墨刀等原型工具，能快速输出高保真产品原型；熟练掌握Coze/dify等低代码平台使用，通过Claude Code vibecoding快速实现demo制作与方案验证；熟练运用Visio、Xmind等软件，可规范输出PRD、流程图等产品交付文档。</p>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Selected Works -->
+        <section id="works">
+            <div class="container">
+                <div class="section-head reveal">
+                    <h2 class="section-title">精选作品</h2>
+                    <p class="section-sub">从理论到实践，打造完整的AI应用生态</p>
+                </div>
+                <div class="works-list">
+                    <a href="https://mortal-git.github.io/Yecai/" target="_blank" rel="noopener" class="work-card card-premium reveal">
+                        <div class="work-card-header">
+                            <div class="icon-square purple"><i class="fas fa-cubes"></i></div>
+                            <div>
+                                <h3 class="work-title">业财一体化</h3>
+                                <span class="work-tag">B端中台 · 业财数字化</span>
+                            </div>
+                        </div>
+                        <p class="work-desc">打通业务与财务的数据孤岛，实现报价、计费、账单、开票全流程线上自动化，报价效率提升80%、账单处理周期缩短90%。</p>
+                        <div class="work-link">
+                            <span>查看详情</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </a>
                 </div>
             </div>
         </section>
